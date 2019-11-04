@@ -1,5 +1,5 @@
 <?php
-namespace amanpro;
+namespace MyApp;
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 
@@ -12,47 +12,48 @@ class Chat implements MessageComponentInterface {
     }
 
     public function onOpen(ConnectionInterface $conn) {
+       // echo $conn;
+     //  foreach ($_SERVER as $header => $value) {
+      /////  echo "$header: $value <br />\n";
+   // } 
+
         $this->clients[] = $conn;
-       /* foreach($this->clients as $client) //loop on clints
-        {
-            if ($client == $from) {
-                $client->send("ready");//ready clients on server 
-            }
-        }*/
-		//$headers = (string)$conn->httpRequest->getHeaders();
-		//$ip = (string)$conn->WebSocket->request->getHeader('X-Forwarded-For');
-		//echo $headers;
-        echo "New Connection";
+
+//echo  $this->clients[0];
+       // $conn->$http_response_header->get_Headers();
+	//	$headers = $conn->httpRequest->$http_response_header;
+		//$ip = (string)$conn->WebSocket->request->getHeader('Cookie');
+		//echo $ip;
+        echo "New Connection\n";
     }
 
     public function onMessage(ConnectionInterface $from, $msg) {
+        echo $msg;
+      //  echo "\n"
 
-        foreach($this->clients as $client) //loop on clints
-        {
-          /*  if($client !=$from and $client==$to)
-            {
-                $client->send($upload);
-            }*/
-            if ($client != $from) {
+        foreach($this->clients as $client) {
+            //if ($client != $from) {
                 $client->send($msg);
-            }
+           // }
         }
 
     }
 
     public function onClose(ConnectionInterface $conn) {
-       /* foreach($this->clients as $client) //loop on clints
-        {
-            if ($client == $from) {
-                $client->send("baye");//leave client server
-            }
-        }*/
-        echo "Connection closed";
+
+        //$this->clients->detach($conn);
+       // echo "Connection {$conn->resourceId} has disconnected\n";
+        echo "\n Connection closed\n";
 
     }
 
     public function onError(ConnectionInterface $conn, \Exception $e) {
         echo $e->getMessage();
-        //preview erorr on serve if have erorr on connection client with serve
     }
 }
+/*
+echo array object
+foreach ($results as $result) {
+    echo $result->type; 
+    echo "<br>";
+    */
