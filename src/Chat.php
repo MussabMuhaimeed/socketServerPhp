@@ -24,7 +24,7 @@ class Chat implements MessageComponentInterface {
 	//	$headers = $conn->httpRequest->$http_response_header;
 		//$ip = (string)$conn->WebSocket->request->getHeader('Cookie');
 		//echo $ip;
-        echo "New Connection\n";
+        echo "New client :)\n";
     }
 
     public function onMessage(ConnectionInterface $from, $msg) {
@@ -43,7 +43,7 @@ class Chat implements MessageComponentInterface {
 
         //$this->clients->detach($conn);
        // echo "Connection {$conn->resourceId} has disconnected\n";
-        echo "\n Connection closed\n";
+        echo "\n client closed :(\n";
 
     }
 
