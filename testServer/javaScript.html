@@ -7,7 +7,7 @@
     #output span.error { color: red; }
 </style>
 <h2>WebSocket Test</h2>
-<textarea cols=60 rows=6></textarea>
+<textarea cols=60 rows=6></textarea><br/>
 <button>send</button>
 <div id=output></div>
 <script>
@@ -17,23 +17,24 @@
         output = document.querySelector("#output"),
         textarea = document.querySelector("textarea"),
         // wsUri = "ws://echo.websocket.org/",
-        wsUri = "ws://127.0.0.1:8080/",
-        websocket = new WebSocket(wsUri);
+        //wsUri = "ws://127.0.0.1:8080/",
+        websocket = new WebSocket("ws://127.0.0.1:8080/");
 
     button.addEventListener("click", onClickButton);
 
     websocket.onopen = function (e) {
-        writeToScreen("CONNECTED");
-        doSend("WebSocket rocks");
+        console.log("CONNECTED");
+        //doSend('whatDo = "employee", serial = "5CG425fhn6", appName = "amanpro", to = "desktop"');
     };
 
     websocket.onclose = function (e) {
-        writeToScreen("DISCONNECTED");
+        console.log("DISCONNECTED");
     };
 
     websocket.onmessage = function (e) {
+        console.log("RESPONSE: " +e.data );
         writeToScreen("<span>RESPONSE: " + e.data + "</span>");
-        websocket.close();
+       // websocket.close();
     };
 
     websocket.onerror = function (e) {
@@ -42,6 +43,7 @@
 
     function doSend(message) {
         writeToScreen("SENT: " + message);
+        console.log("SENT: " + message );
         websocket.send(message);
     }
 
