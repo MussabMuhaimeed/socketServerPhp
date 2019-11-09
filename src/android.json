@@ -1,4 +1,12 @@
-whatDo = "employee",
+//employee
+//
+//
+//isOnline
+//
+//serch
+//bills
+//storge
+whatDo = "products",
 serial = "5CG425fhn6",
 appName = "amanpro",
 to = "desktop",
