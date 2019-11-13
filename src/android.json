@@ -1,16 +1,12 @@
-//employee
-//
-//
-//isOnline
-//
-//serch
-//bills
-//storge
-whatDo = "products",
-serial = "5CG425fhn6",
-appName = "amanpro",
-to = "desktop",
-called = "android",
-date = "2019-11-5",
-row = "3",
-id = "0"
+[
+    {
+        "appName": "amanpro",
+        "called": "android",
+        "serial": "5CG425FHN6",
+        "whatDo": "employee",
+        "date": "2019-11-5",
+        "row": "3",
+        "for": "desktop",
+        "id": 0
+    }
+]

@@ -32,9 +32,9 @@ class Chat implements MessageComponentInterface {
       //  echo "\n"
 
         foreach($this->clients as $client) {
-            //if ($client != $from) {
+            if ($client != $from) {
                 $client->send($msg);
-           // }
+            }
         }
 
     }
