@@ -25,6 +25,10 @@ class Chat implements MessageComponentInterface {
 		//$ip = (string)$conn->WebSocket->request->getHeader('Cookie');
 		//echo $ip;
         echo "New client :)\n";
+
+
+
+        //echo "Connection {$conn->resourceId} has disconnected\6";
     }
 
     public function onMessage(ConnectionInterface $from, $msg) {
@@ -51,9 +55,22 @@ class Chat implements MessageComponentInterface {
         echo $e->getMessage();
     }
 }
+
+
+
+
 /*
-echo array object
-foreach ($results as $result) {
-    echo $result->type; 
-    echo "<br>";
+public function onMessage(ConnectionInterface $from, $msg) {
+    $numRecv = count($this->clients) - 1;
+    echo sprintf('Connection %d sending message "%s" to %d other connection%s' . "\n"
+        , $from->resourceId, $msg, $numRecv, $numRecv == 1 ? '' : 's');
+    foreach ($this->clients as $client) {
+        $data = json_decode($msg,true);
+        $port = $data['port'];
+        $code = json_encode($from);
+        if ($port == $client->resourceId) {
+            $client->send($msg);
+        }
+    }
+}
     */
