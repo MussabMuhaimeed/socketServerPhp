@@ -1,11 +1,8 @@
-# socketServerPhp
+# socket-Server-Php laravel
 project with php server socket by mhemeedpro
 
-#created by mosaab mhemeed
-
+##created by mosaab mhemeed
 this project for server php socket 
-
-#aman pro
 
 
 #install xampp
@@ -13,10 +10,8 @@ this project for server php socket
 
 
 
-return project 
-
+####return project 
 git fetch origin
 git reset --hard origin/master
-
 git pull
 ------------------------------------
